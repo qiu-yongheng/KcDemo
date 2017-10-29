@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RongClound</string>
+    <string name="rong_activity_tip">活动提示</string>
+    <string name="rong_activity_group">活动群聊</string>
+</resources>
