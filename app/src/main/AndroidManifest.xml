@@ -22,6 +22,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".SocketActivity"/>
+
 
         <provider
             android:name="android.support.v4.content.FileProvider"

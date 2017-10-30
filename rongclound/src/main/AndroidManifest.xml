@@ -6,6 +6,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true">
 
+        <!--活动提示-->
+        <activity android:name=".mvp.activitytip.ActivityTipActivity"/>
+
 
         <!--会话界面-->
         <activity
@@ -22,6 +25,24 @@
                     android:host="com.qyh.kcdemo"
                     android:pathPrefix="/conversation/"
                     android:scheme="rong"/>
+            </intent-filter>
+        </activity>
+
+        <!--会话列表-->
+        <activity
+            android:name=".ui.ConversationListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.qyh.kcdemo"
+                    android:pathPrefix="/conversationlist"
+                    android:scheme="rong" />
             </intent-filter>
         </activity>
 

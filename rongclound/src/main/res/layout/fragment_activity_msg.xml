@@ -5,6 +5,7 @@
               android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/rl_activity_tip"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_height"
         android:background="@color/white"

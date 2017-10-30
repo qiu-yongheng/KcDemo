@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.qyh.rongclound.listener.RongAppContext;
 
@@ -40,6 +39,7 @@ public class IMActivity extends AppCompatActivity{
     private ArrayList<String> ids = new ArrayList<>();
     private Button btnOpen;
     private Button btnCreator;
+    private Button btnSocket;
 
 
     @Override
@@ -52,6 +52,7 @@ public class IMActivity extends AppCompatActivity{
 
         btnOpen = (Button) findViewById(R.id.btn_open);
         btnCreator = (Button) findViewById(R.id.btn_creator);
+        btnSocket = (Button) findViewById(R.id.btn_socket);
 
         RongIM.connect(token1, RongAppContext.getInstance().getConnectCallback());
 
@@ -76,6 +77,13 @@ public class IMActivity extends AppCompatActivity{
                         Log.d("==", "创建失败: " + errorCode);
                     }
                 });
+            }
+        });
+
+        btnSocket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SocketActivity.startActivity(IMActivity.this);
             }
         });
     }

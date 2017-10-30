@@ -3,10 +3,16 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/IMKit/IMKit.iml" filepath="$PROJECT_DIR$/IMKit/IMKit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IMKit/IMKit.iml" filepath="$PROJECT_DIR$/IMKit/IMKit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IMLib/IMLib.iml" filepath="$PROJECT_DIR$/IMLib/IMLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/IMLib/IMLib.iml" filepath="$PROJECT_DIR$/IMLib/IMLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/KcDemo.iml" filepath="$PROJECT_DIR$/KcDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KcDemo.iml" filepath="$PROJECT_DIR$/KcDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/litemvp/litemvp.iml" filepath="$PROJECT_DIR$/litemvp/litemvp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/litemvp/litemvp.iml" filepath="$PROJECT_DIR$/litemvp/litemvp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rongclound/rongclound.iml" filepath="$PROJECT_DIR$/rongclound/rongclound.iml" />
       <module fileurl="file://$PROJECT_DIR$/rongclound/rongclound.iml" filepath="$PROJECT_DIR$/rongclound/rongclound.iml" />
     </modules>
   </component>

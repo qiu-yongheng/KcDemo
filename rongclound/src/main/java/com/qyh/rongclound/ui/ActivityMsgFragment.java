@@ -7,8 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.qyh.rongclound.R;
+import com.qyh.rongclound.mvp.activitytip.ActivityTipActivity;
 
 import io.rong.imlib.model.Conversation;
 
@@ -19,11 +21,12 @@ import io.rong.imlib.model.Conversation;
  * @desc ${TODD}
  */
 
-public class ActivityMsgFragment extends Fragment{
+public class ActivityMsgFragment extends Fragment implements View.OnClickListener {
 
     private ConversationListFragmentEx conversationListFragmentEx;
     private Uri uri;
     private Conversation.ConversationType[] mConversationsTypes;
+    private RelativeLayout rlActivityTip;
 
     @Nullable
     @Override
@@ -39,6 +42,8 @@ public class ActivityMsgFragment extends Fragment{
     }
 
     private void initView(View view, Bundle savedInstanceState) {
+        rlActivityTip = (RelativeLayout) view.findViewById(R.id.rl_activity_tip);
+        rlActivityTip.setOnClickListener(this);
         Fragment conversationList = initConversationList();
 
         getChildFragmentManager()
@@ -53,11 +58,11 @@ public class ActivityMsgFragment extends Fragment{
 
             uri = Uri.parse("rong://" + getActivity().getApplicationInfo().packageName).buildUpon()
                     .appendPath("conversationlist")
-                    .appendQueryParameter(Conversation.ConversationType.PRIVATE.getName(), "false") //设置私聊会话是否聚合显示
+//                    .appendQueryParameter(Conversation.ConversationType.PRIVATE.getName(), "false") //设置私聊会话是否聚合显示
                     .appendQueryParameter(Conversation.ConversationType.GROUP.getName(), "false")//群组
-                    .appendQueryParameter(Conversation.ConversationType.PUBLIC_SERVICE.getName(), "false")//公共服务号
-                    .appendQueryParameter(Conversation.ConversationType.APP_PUBLIC_SERVICE.getName(), "false")//订阅号
-                    .appendQueryParameter(Conversation.ConversationType.SYSTEM.getName(), "false")//系统
+//                    .appendQueryParameter(Conversation.ConversationType.PUBLIC_SERVICE.getName(), "false")//公共服务号
+//                    .appendQueryParameter(Conversation.ConversationType.APP_PUBLIC_SERVICE.getName(), "false")//订阅号
+//                    .appendQueryParameter(Conversation.ConversationType.SYSTEM.getName(), "false")//系统
                     .appendQueryParameter(Conversation.ConversationType.DISCUSSION.getName(), "false")// 讨论组
                     .build();
             mConversationsTypes = new Conversation.ConversationType[]{Conversation.ConversationType.PRIVATE,
@@ -72,6 +77,14 @@ public class ActivityMsgFragment extends Fragment{
             return conversationListFragmentEx;
         } else {
             return conversationListFragmentEx;
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        int i = view.getId();
+        if (i == R.id.rl_activity_tip) {
+            ActivityTipActivity.startActivity(getActivity());
         }
     }
 }

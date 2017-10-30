@@ -3,9 +3,11 @@ package com.qyh.rongclound.ui;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.FragmentActivity;
+import android.view.View;
 
 import com.qyh.rongclound.R;
+import com.qyh.rongclound.base.BaseActivity;
+import com.qyh.rongclound.mvp.activitytip.ActivityTipPresenter;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -29,7 +31,7 @@ import io.rong.message.VoiceMessage;
  */
 
 
-public class ConversationActivity extends FragmentActivity {
+public class ConversationActivity extends BaseActivity<ActivityTipPresenter> {
     public static final int SET_TEXT_TYPING_TITLE = 1;
     public static final int SET_VOICE_TYPING_TITLE = 2;
     public static final int SET_TARGET_ID_TITLE = 0;
@@ -56,12 +58,35 @@ public class ConversationActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.conversation);
+    }
 
+    @Override
+    protected void initView() {
         mTargetId = getIntent().getData().getQueryParameter("targetId");
         mConversationType = Conversation.ConversationType.valueOf(getIntent().getData()
                 .getLastPathSegment().toUpperCase(Locale.US));
 
+        String title = getIntent().getData().getQueryParameter("title");
+        setTitle(title);
+    }
+
+    @Override
+    protected void bindEvent() {
         // 监听输入状态
+        setTypingStatusListener();
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected void processClick(View view) {
+
+    }
+
+    private void setTypingStatusListener() {
         RongIMClient.setTypingStatusListener(new RongIMClient.TypingStatusListener() {
             @Override
             public void onTypingStatusChanged(Conversation.ConversationType type, String targetId, Collection<TypingStatus> typingStatusSet) {

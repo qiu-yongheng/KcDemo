@@ -14,10 +14,8 @@
         app:tabBackground="@color/white"
         app:tabIndicatorColor="@color/text_color_blue"
         app:tabSelectedTextColor="@color/text_color_blue"/>
-
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="?actionBarSize"/>
+        android:layout_height="match_parent"/>
 </LinearLayout>
