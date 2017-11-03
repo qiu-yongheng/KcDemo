@@ -1,0 +1,115 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.qyh.rongclound">
+
+    <!-- 融云音视频权限 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <!--消息列表-->
+        <activity android:name=".mvp.messagelist.MessageListActivity"/>
+
+
+        <!--会话界面-->
+        <activity
+            android:name=".ui.conversation.ConversationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data
+                    android:host="com.qyh.kcdemo"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong"/>
+            </intent-filter>
+        </activity>
+
+        <!--会话列表-->
+        <activity
+            android:name=".ui.conversation.ConversationListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.qyh.kcdemo"
+                    android:pathPrefix="/conversationlist"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+
+        <!--音视频-->
+        <activity
+            android:name="io.rong.callkit.MultiVideoCallActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="io.rong.intent.action.voip.MULTIVIDEO" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="io.rong.callkit.SingleCallActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="io.rong.intent.action.voip.SINGLEVIDEO" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="io.rong.intent.action.voip.SINGLEAUDIO" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="io.rong.callkit.MultiAudioCallActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="io.rong.intent.action.voip.MULTIAUDIO" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="io.rong.callkit.CallSelectMemberActivity" />
+
+        <!--UDP-->
+        <service android:name=".udp.UdpService"/>
+        <receiver android:name=".udp.AlarmReceiver"/>
+
+        <receiver android:name=".broadcast.SyncReceiver">
+            <intent-filter>
+                <action android:name="UPDATE_STORY"/>
+                <action android:name="UPDATE_FRIEND"/>
+                <action android:name="UPDATE_SOS"/>
+                <action android:name="UPDATE_CHAT"/>
+                <action android:name="UPDATE_SYS"/>
+                <action android:name="UPDATE_AWARD"/>
+                <action android:name="ACTIVITY_APPLY"/>
+                <action android:name="PUSH_SINGUP"/>
+                <action android:name="PUSH_CHECKIN"/>
+                <action android:name="PUSH_START"/>
+                <action android:name="PUSH_END"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

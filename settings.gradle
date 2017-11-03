@@ -1,1 +1,1 @@
-include ':app', ':IMLib', ':IMKit', ':rongclound', ':litemvp'
+include ':app', ':IMLib', ':IMKit', ':rongcloud', ':litemvp', ':CallLib', ':CallKit'

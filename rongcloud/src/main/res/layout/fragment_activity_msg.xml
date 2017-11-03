@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_activity_tip"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <FrameLayout
+            android:layout_marginLeft="@dimen/marginleft_14dp"
+            android:id="@+id/fl_img"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/item_img"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/dynamic"/>
+
+            <com.qyh.rongclound.ui.widget.DragPointView
+                android:id="@+id/rong_num"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/fl_img"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                android:visibility="invisible"/>
+        </FrameLayout>
+
+
+
+        <TextView
+            style="@style/text_black"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/marginleft_7dp"
+            android:layout_toRightOf="@id/fl_img"
+            android:gravity="center_vertical"
+            android:text="@string/rong_activity_tip"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/marginleft_14dp"
+            android:src="@mipmap/go"/>
+    </RelativeLayout>
+
+    <include layout="@layout/item_divi"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_activity_handle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <FrameLayout
+            android:layout_marginLeft="@dimen/marginleft_14dp"
+            android:id="@+id/fl_handle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/item_img_handle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/dynamic"/>
+
+            <com.qyh.rongclound.ui.widget.DragPointView
+                android:id="@+id/rong_num_handle"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/fl_img"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                android:visibility="invisible"/>
+        </FrameLayout>
+
+
+
+        <TextView
+            style="@style/text_black"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/marginleft_7dp"
+            android:layout_toRightOf="@id/fl_handle"
+            android:gravity="center_vertical"
+            android:text="待  处  理"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/marginleft_14dp"
+            android:src="@mipmap/go"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:background="@color/background_gray"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height_small">
+
+        <TextView
+            style="@style/text_gray"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/marginleft_14dp"
+            android:text="@string/rong_activity_group"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/container_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

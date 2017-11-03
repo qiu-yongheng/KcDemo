@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.qyh.kcdemo">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -23,6 +28,7 @@
         </activity>
 
         <activity android:name=".SocketActivity"/>
+        <activity android:name=".UdpActivity"/>
 
 
         <provider
@@ -34,6 +40,11 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/rc_file_path"/>
         </provider>
+
+        <!-- 高德地图, IM发送定位需要 -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="1169a1f549319ef8fd0ce3ba36fb09ef" />
     </application>
 
 </manifest>

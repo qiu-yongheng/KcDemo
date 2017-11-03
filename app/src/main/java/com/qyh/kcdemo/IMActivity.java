@@ -8,12 +8,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.qyh.rongclound.constant.Constant;
 import com.qyh.rongclound.listener.RongAppContext;
+import com.qyh.rongclound.mvp.messagelist.MessageListActivity;
+import com.qyh.rongclound.notifycation.NotifyManager;
+import com.qyh.rongclound.udp.UdpService;
 
 import java.util.ArrayList;
 
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
+import io.rong.imlib.model.Conversation;
 
 /**
  * @author 邱永恒
@@ -40,6 +45,10 @@ public class IMActivity extends AppCompatActivity{
     private Button btnOpen;
     private Button btnCreator;
     private Button btnSocket;
+    private Button btnUdp;
+    private Button btnNotify;
+    private int count = 0;
+    private Button btnOpenGroup;
 
 
     @Override
@@ -53,6 +62,9 @@ public class IMActivity extends AppCompatActivity{
         btnOpen = (Button) findViewById(R.id.btn_open);
         btnCreator = (Button) findViewById(R.id.btn_creator);
         btnSocket = (Button) findViewById(R.id.btn_socket);
+        btnUdp = (Button) findViewById(R.id.btn_udp);
+        btnNotify = (Button) findViewById(R.id.btn_notify);
+        btnOpenGroup = (Button) findViewById(R.id.btn_open_group);
 
         RongIM.connect(token1, RongAppContext.getInstance().getConnectCallback());
 
@@ -86,5 +98,36 @@ public class IMActivity extends AppCompatActivity{
                 SocketActivity.startActivity(IMActivity.this);
             }
         });
+
+        btnUdp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UdpActivity.startActivity(IMActivity.this);
+            }
+        });
+
+        btnNotify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putInt(MessageListActivity.TYPE, Constant.TYPE_SOS);
+                NotifyManager.getInstance().sendNotify(3, R.mipmap.dynamic,  R.mipmap.dynamic, "gaga", String.valueOf(count++), MessageListActivity.class, bundle);
+            }
+        });
+
+        btnOpenGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                RongIM.getInstance().startGroupChat(IMActivity.this, "8888", "东亚重工");
+                RongIM.getInstance().startConversation(IMActivity.this, Conversation.ConversationType.GROUP, "9999", "东亚重工");
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Intent intent = new Intent(this, UdpService.class);
+        stopService(intent);
     }
 }

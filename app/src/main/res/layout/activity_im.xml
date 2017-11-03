@@ -22,4 +22,22 @@
         android:layout_height="wrap_content"
         android:text="打开websocket"/>
 
+    <Button
+        android:id="@+id/btn_udp"
+        android:text="打开UDP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_notify"
+        android:text="通知"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_open_group"
+        android:text="打开群组"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

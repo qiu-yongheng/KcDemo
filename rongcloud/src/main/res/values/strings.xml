@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">RongClound</string>
+    <string name="rong_activity_tip">活动提示</string>
+    <string name="rong_activity_group">活动群聊</string>
+    <string name="rong_title_activity_tip">活动提示</string>
+    <string name="private_chat">私聊消息</string>
+    <string name="rong_title_story">动态提示</string>
+    <string name="rong_title_friend">新的好友</string>
+    <string name="rong_title_sos">求救提示</string>
+    <string name="rong_title_sys">系统通知</string>
+    <string name="rong_title_award">奖励通知</string>
+    <string name="rong_title_activity_handle">待处理</string>
+
+    <array name="other_msg">
+        <item>动态提示</item>
+        <item>新的好友</item>
+        <item>求救提示</item>
+        <item>私聊消息</item>
+        <item>系统通知</item>
+        <item>奖励通知</item>
+    </array>
+</resources>
